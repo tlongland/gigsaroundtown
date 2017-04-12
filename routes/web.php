@@ -33,11 +33,6 @@ Route::get('/', function () {
     return view('welcome', compact('latest', 'artistLat', 'ven', 'genre'));
 });
 
-
-Route::get('/about', function(){
-   return view('about');
-});
-
 Route::get('/search', 'SearchController@index');
 
 Route::get('/event', 'EventController@index');
