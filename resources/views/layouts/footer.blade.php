@@ -1,0 +1,4 @@
+@yield('content')
+
+</body>
+</html>

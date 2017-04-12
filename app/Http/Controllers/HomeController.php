@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $user = $request->user();
+
+        $venue = App\venue::all();
+        $artist = App\band::all();
+
+        return view('home', compact('user', 'venue', 'artist'));
     }
+
+
+
+
+
 }

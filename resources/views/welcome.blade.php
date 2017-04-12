@@ -1,95 +1,115 @@
-<!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('content')
+<main id="index">
+    <div id="banner">
+        <section id="search" class="container">
+            <form id="searchbox" method="GET" action="/search">
+                    <div class="col-md-2">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+                    </div>
+                    <div class="form-group col-xs-9 col-sm-6 col-md-6">
+                        <input type="text" id="searchinput" name="search" placeholder="Search your area for venues">
+                    </div>
+                    <div class="form-group col-xs-3 col-sm-6 col-md-2">
+                        <button type="submit" id="searchbut" class="btn btn-primary">Search</button>
+                    </div>
+                    <div class="col-md-2">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+                    </div>
+            </form>
+        </section>
+    </div>
+        <div class="container">
+            <article id="latest">
+                <div class="row">
+                <h3>Latest Events</h3>
+                @foreach ($latest as $latests)
+                    <section class="col-xs-6 col-sm-6 col-md-3">
+                        <div class="card cards">
+                            <img class="card-img-top" src="{{get_image($latests->image, "event_images/default.png")}}" alt="{{$latests->name}}">
+                            <div class="card-block">
+                                <h4 class="card-title">{{ $latests->name }}</h4>
+                                <p class="card-text">{{ date('d F, Y', strtotime($latests->Date)) }}</p>
+                                <div class="button">
+                                <a class="card-link" href="/event/{{ $latests->id }}">Find out more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                @endforeach
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div class="more">
+                    <a href="/event">See more events</a>
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+            </article>
         </div>
-    </body>
-</html>
+        <article id="latbands">
+        <div class="container">
+                <div class="row">
+                    <h3>Latest Bands</h3>
+                    @foreach ($artistLat as $artistLats)
+                        <section class="col-xs-6 col-sm-6 col-md-3">
+                            <div class="card cards">
+                                <img class="card-img-top" src="{{get_image($artistLats->picture, "artist_images/default.png")}}" alt="{{$artistLats->name}}">
+                                <div class="card-block">
+                                    <h4 class="card-title band">{{ $artistLats->name }}</h4>
+                                    <p class="card-text text">Members: {{ $artistLats->members }}</p>
+                                    <div class="button">
+                                        <a class="card-link" href="/artist/{{ $artistLats->id }}">Find out more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    @endforeach
+
+                </div>
+                <div class="more">
+                    <a href="/artist">See more events</a>
+                </div>
+        </div>
+        </article>
+
+    <div class="container">
+        <article id="latest">
+            <div class="row">
+                <h3>Venues</h3>
+                @foreach ($ven as $vens)
+                    <section class="col-xs-6 col-sm-6 col-md-3">
+                        <div class="card cards">
+                            <img class="card-img-top" src="{{get_image($vens->picture, "venue_images/default.png")}}" alt="{{$vens->name}}">
+                            <div class="card-block">
+                                <h4 class="card-title venue">{{ $vens->name }}</h4>
+                                <p class="card-text text">{{ $vens->about }}</p>
+                                <div class="button">
+                                    <a class="card-link" href="/venue/{{ $vens->id }}">Find out more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                @endforeach
+
+            </div>
+            <div class="more">
+                <a href="/venue">See more events</a>
+            </div>
+        </article>
+    </div>
+        <article class="genre">
+            <div class="container">
+            <div class="row">
+                <h3>Genre</h3>
+            @foreach($genre as $genres)
+                <div class="col-xs-4 col-sm-3 col-md-2">
+                    <a href="/genre/{{ $genres->id }}">{{$genres->genre}}
+                        <img src="{{ Storage::disk('s3')->url($genres->picture) }}" alt="{{$genres->genre}}">
+
+                    </a>
+                </div>
+            @endforeach
+            </div>
+            </div>
+        </article>
+</main>
+@endsection
