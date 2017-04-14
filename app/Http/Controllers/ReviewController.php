@@ -52,7 +52,7 @@ class ReviewController extends Controller
             DB::table('users')->whereId($request->user()->id)->increment('review_count');
 
 
-            return redirect('/event');
+            return redirect('/event/' . $event->id);
 
 
 

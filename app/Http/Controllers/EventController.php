@@ -7,6 +7,8 @@ use Illuminate\support\facades\Storage;
 use Illuminate\Support\Facades\File;
 use League\Flysystem\Filesystem;
 use App;
+use App\attend;
+use App\event;
 
 class EventController extends Controller
 {
@@ -129,7 +131,7 @@ class EventController extends Controller
 
         //redirect
 
-        return redirect('/event');
+        return redirect('/home');
 
     }
 

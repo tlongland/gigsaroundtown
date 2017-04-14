@@ -8,13 +8,19 @@
             <section class="pic col-md-6">
                 <img src="{{get_image($event->image, "event_images/default.png")}}" alt="">
             </section>
-            <section class="col-md-6">
+            <section class="col-md-6 inf">
                 <h1>{{$event->name}}</h1>
                 <h4>Headline: <strong><a href="/artist/{{ $event->band->id }}">{{$event->band->name}}</a></strong></h4>
                 <p>Description</p>
                 <p>{{ $event->description }}</p>
-                <h5>Rating : {{round($final ,1)}}</h5>
-                <p>Created by: {{ $event->user->name }}</p>
+                <p>Rating : {{round($final ,1)}}</p>
+                <p>Amount attending: <strong>{{count($event->attend)}}</strong></p>
+                <form method="POST" action="/event/{{$event->id}}/attending">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Are you attending</button>
+                    </div>
+                </form>
             </section>
         </div>
     </article>
@@ -63,11 +69,11 @@
                     </section>
                     <section class="col-md-6">
                         <h4>Venue: {{$event->venue->name}}</h4>
-                        <h5>About</h5>
+                        <p>About</p>
                         <p>{{$event->venue->about}}</p>
-                        <h5>Capacity: {{$event->venue->capacity}}</h5>
-                        <h5>Location: {{$event->venue->location}}</h5>
-                        <a href="/venue/{{ $event->venue->id }}">See what other events are here</a>
+                        <p>Capacity: {{$event->venue->capacity}}</p>
+                        <p>Location: {{$event->venue->location}}</p>
+                        <p><a href="/venue/{{ $event->venue->id }}">See what other events are here</a></p>
                     </section>
             </article>
         </div>
@@ -86,8 +92,12 @@
                                     <button type="submit" class="btn btn-primary">Add Comment</button>
                                 </div>
                             </form>
+                            @else
+                            <div class="col-md-6">
+                                <h4>Please login to comment</h4>
+                            </div>
                             @endif
-                        <ul class="list-group col-md-6">
+                        <ul class="list-group col-md-6 com">
                             @foreach($event->comments as $comment) 
                             <li class="list-group-item">
                                 <strong>{{$comment->comment}} </strong>

@@ -34,10 +34,10 @@
                 <h3>Genres</h3>
                 @foreach($genre as $gens)
                     <div class="col-xs-4 col-sm-3 col-md-2">
-                        <a href="/genre/{{ $gens->id }}">{{$gens->genre}}
-                            <img src="{{ Storage::disk('s3')->url($gens->picture) }}" alt="{{$gens->genre}}">
+                        <div class="gen"><a href="/genre/{{ $gens->id }}">
+                            <img src="{{ Storage::disk('s3')->url($gens->picture) }}" alt="{{$gens->genre}}">{{$gens->genre}}
 
-                        </a>
+                        </a></div>
                     </div>
                 @endforeach
             </div>

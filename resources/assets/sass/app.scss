@@ -27,16 +27,12 @@ h3 {
 }
 
 .nav {
-  width:40%;
-}
-
-.dropdown {
-  width:25%;
+  width: 40%;
 }
 
 #drop {
   padding-bottom: 5px;
-  padding-top: 5px;
+  padding-top: 6px;
 }
 
 #banner {
@@ -194,7 +190,7 @@ h3 {
 
 .genre img {
   width:100%;
-  height:175px;
+  height:150px;
 }
 
 footer {
@@ -246,8 +242,13 @@ footer li a:hover {
 
 .users h3, h5{
   padding-left:0;
-  margin-top:30px;
-  margin-bottom:30px !important;
+  margin-top:20px;
+  margin-bottom:20px !important;
+}
+
+.artAbout {
+  width:80%;
+  margin:0 auto;
 }
 
 .users button {
@@ -329,6 +330,22 @@ footer li a:hover {
   display:block;
 }
 
+.gen {
+  text-align:center;
+  background-color:#D6886F;
+  font-size:1.5em;
+  margin-bottom:30px;
+}
+
+.gen a {
+  color:white;
+}
+
+.gen a:hover{
+  text-decoration: none;
+  color:#4B5F8C;
+}
+
 #review-comment {
   margin-top:20px;
 }
@@ -355,6 +372,19 @@ span.select2.select2-container {
     height:auto;
   }
 
+  .genre img {
+
+    height:120px;
+  }
+
+  .inf {
+    margin-top:20px;
+  }
+
+  .com {
+    padding-left:15px;
+  }
+
   .text {
     font-size:.8em;
   }
@@ -369,6 +399,43 @@ span.select2.select2-container {
 
   #searchinput {
     font-size:1.5em;
+  }
+
+  .info h1 {
+    padding-left:45px;
+  }
+
+  .info p {
+    padding-left:45px;
+    padding-right:45px;
+  }
+
+  .info h4 {
+    padding-left:45px;
+  }
+
+  .info form {
+    padding-left:45px;
+  }
+
+  #help {
+    text-align:center;
+  }
+
+  #help ul {
+    margin:0;
+  }
+
+  .artAbout {
+    width:90%;
+  }
+
+  .artAbout p{
+    padding-left:15px;
+  }
+
+  .list {
+    margin-right:0;
   }
 
 }

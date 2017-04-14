@@ -93,12 +93,12 @@
 
     <footer>
         <div class="container">
-        <section id="copy" class="col-xs-6 col-md-6">
+        <section id="copy" class="col-xs-12 col-md-6">
             <ul>
                 <li>Gigsaroundtown &copy; Copyright Tom longland</li>
             </ul>
         </section>
-        <section id="help" class="col-xs-6 col-md-6">
+        <section id="help" class="col-xs-12 col-md-6">
             <ul>
                 <li><a>About</a></li>
                 <li><a>Contact Us</a></li>

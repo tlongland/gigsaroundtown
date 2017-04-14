@@ -43,4 +43,10 @@ class event extends Model
         return $this->hasMany(review::class);
 
     }
+
+    public function attend(){
+
+        return $this->hasMany(attend::class);
+
+    }
 }

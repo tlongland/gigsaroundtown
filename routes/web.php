@@ -41,6 +41,8 @@ Route::get('/event/{event}', 'EventController@show');
 
 Route::post('/event', 'EventController@store');
 
+Route::post('/event/{event}/attending', 'AttendController@store');
+
 
 Route::get('/artist', 'ArtistController@index');
 

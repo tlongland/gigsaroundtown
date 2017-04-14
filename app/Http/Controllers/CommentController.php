@@ -17,7 +17,7 @@ class CommentController extends Controller
             'user_id'=> $request->user()->id
         ]);
 
-        return redirect('/event');
+        return redirect('/event/' . $event->id);
 
     }
 }

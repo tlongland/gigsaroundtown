@@ -80,7 +80,27 @@
                     </div>
                 </section>
         </div>
-            <section class="user">
+        <section class="user">
+            <div class="container">
+                <h3>Your Events</h3>
+                <div class="row cardsec">
+                    @foreach ($user->attend as $attends)
+                        <section class="col-xs-6 col-sm-6 col-md-3">
+                            <div class="card cards">
+                                <div class="card-block">
+                                    <h4 class="card-title">{{ $attends->event->name }}</h4>
+                                    <p class="card-text">{{ date('d F, Y', strtotime($attends->event->Date)) }}</p>
+                                    <div class="button">
+                                        <a class="card-link" href="/event/{{ $attends->event_id }}/review">Have you left a review yet</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+            <section>
                 <div class="container">
                 <h3>Your Events</h3>
                 <div class="row cardsec">
@@ -100,7 +120,7 @@
                 </div>
                 </div>
             </section>
-        <section class="revs">
+        <section class="user">
             <div class="container">
                 <h3>Reviews you have left</h3>
                 <div class="row cardsec">

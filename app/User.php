@@ -44,4 +44,10 @@ class User extends Authenticatable
 
     }
 
+    public function attend(){
+
+        return $this->hasMany(attend::class);
+
+    }
+
 }

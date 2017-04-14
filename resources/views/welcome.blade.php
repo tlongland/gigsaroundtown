@@ -102,10 +102,10 @@
                 <h3>Genre</h3>
             @foreach($genre as $genres)
                 <div class="col-xs-4 col-sm-3 col-md-2">
-                    <a href="/genre/{{ $genres->id }}">{{$genres->genre}}
-                        <img src="{{ Storage::disk('s3')->url($genres->picture) }}" alt="{{$genres->genre}}">
+                    <div class="gen"><a href="/genre/{{ $genres->id }}">
+                        <img src="{{ Storage::disk('s3')->url($genres->picture) }}" alt="{{$genres->genre}}">{{$genres->genre}}
 
-                    </a>
+                    </a></div>
                 </div>
             @endforeach
             </div>

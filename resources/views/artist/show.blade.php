@@ -20,8 +20,10 @@
         </div>
             <article>
                 <div class="container">
-                    <h3>About</h3>
-                    <p>{{$artist->about}}</p>
+                    <div class="artAbout">
+                        <h3>About</h3>
+                        <p>{{$artist->about}}</p>
+                    </div>
                 </div>
             </article>
 
